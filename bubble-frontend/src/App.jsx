@@ -51,13 +51,13 @@ function App() {
     setReportText('');
 
     try {
-      const analyzeRequest = axios.post('http://localhost:3000/analyze', {
+      const analyzeRequest = axios.post('https://superhack-nw1s.onrender.com/analyze', {
         rawLog,
         ticketId,
         clientName,
       });
 
-      const reportRequest = axios.post('http://localhost:3000/generate-report', {
+      const reportRequest = axios.post('https://superhack-nw1s.onrender.com/generate-report', {
         rawLog,
         ticketId,
         clientName,
