@@ -1,0 +1,354 @@
+:root {
+  /* Apply the Roboto font universally */
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Color Palette */
+  --color-black: #010101;
+  --color-dark: #121212;
+  --color-dark-accent: #1a1a1a;
+  --color-pink-bright: #DB30AC;
+  --color-pink-light: #F28CBF;
+  --color-red-hot: #F10451;
+  --color-magenta-dark: #A91A5A;
+  --color-text: #e0e0e0;
+  --color-text-dim: #a0a0a0;
+  
+  /* Set the base theme */
+  background-color: var(--color-black);
+  color: var(--color-text);
+}
+
+/* --- Navbar Styles --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2.5rem;
+  background-color: var(--color-dark-accent); /* Slightly lighter than main background */
+  border-bottom: 1px solid var(--color-magenta-dark);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  margin-bottom: 2rem; /* Space between navbar and main content */
+}
+
+.navbar-left, .navbar-right {
+  flex: 1; /* Allows the left and right sections to take up space */
+  display: flex;
+  align-items: center;
+}
+
+.navbar-right {
+  justify-content: flex-end; /* Push content to the right */
+}
+
+.navbar-center {
+  flex: 2; /* Gives more space to the center title */
+  text-align: center;
+}
+
+.navbar-logo {
+  height: 40px; /* Adjust height as needed */
+  margin-right: 15px; /* Space between logo and potential text/links */
+}
+
+.navbar-title {
+  /* Apply the gradient effect for the title as well */
+  background: linear-gradient(90deg, var(--color-pink-light), var(--color-pink-bright));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em; /* A bit of spacing for aesthetic */
+}
+
+/* Ensure the main container doesn't have top margin now that navbar exists */
+.container {
+  max-width: 900px;
+  margin: 0 auto 2.5rem auto; /* Removed top margin, added bottom */
+  padding: 2.5rem;
+  background-color: var(--color-dark);
+  border: 1px solid var(--color-magenta-dark);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(219, 48, 172, 0.2);
+}
+
+/* Adjust header P for new layout */
+header p {
+  font-size: 1.125rem;
+  color: var(--color-pink-light);
+  margin-top: 0.5rem; /* Give it some space */
+}
+
+/* Remove old header h1, as title is in navbar */
+header h1 {
+  display: none; 
+}
+
+.container {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 2.5rem;
+  background-color: var(--color-dark);
+  border: 1px solid var(--color-magenta-dark);
+  border-radius: 12px;
+  /* A subtle pink glow */
+  box-shadow: 0 0 20px rgba(219, 48, 172, 0.2);
+}
+
+/* --- Header --- */
+header {
+  text-align: center;
+  border-bottom: 1px solid var(--color-magenta-dark);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  /* Gradient text effect */
+  background: linear-gradient(90deg, var(--color-pink-bright), var(--color-red-hot));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  margin-bottom: 0.5rem;
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+header p {
+  font-size: 1.125rem;
+  color: var(--color-pink-light);
+}
+
+/* --- Section Base --- */
+h2 {
+  font-size: 1.5rem;
+  color: var(--color-pink-bright);
+  border-bottom: 1px solid var(--color-magenta-dark);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Input Section --- */
+.input-section {
+  padding: 1.5rem;
+  background-color: var(--color-dark-accent);
+  border-radius: 12px;
+  border: 1px solid #333;
+  margin-bottom: 2rem;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.text-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  background-color: var(--color-black);
+  color: var(--color-text);
+  border: 1px solid var(--color-magenta-dark);
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: var(--color-pink-bright);
+  box-shadow: 0 0 10px rgba(219, 48, 172, 0.5);
+}
+
+/* --- Button Styles --- */
+/* Base styles for all buttons */
+button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: none;
+}
+
+.analyze-button {
+  color: #fff;
+  background: linear-gradient(90deg, var(--color-red-hot), var(--color-pink-bright));
+  margin-top: 1rem;
+}
+
+.analyze-button:hover:not(:disabled) {
+  background: linear-gradient(90deg, var(--color-pink-bright), var(--color-red-hot));
+  box-shadow: 0 0 15px rgba(241, 4, 81, 0.5);
+}
+
+.analyze-button:disabled {
+  background: #333;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.upload-button {
+  color: var(--color-pink-light);
+  background-color: transparent;
+  border: 2px dashed var(--color-pink-bright);
+  font-weight: 500;
+}
+
+.upload-button:hover {
+  background-color: var(--color-dark-accent);
+  color: #fff;
+}
+
+.clear-button {
+  padding: 0.75rem;
+  color: var(--color-text-dim);
+  background-color: transparent;
+  margin-top: 0.75rem;
+  font-weight: 400;
+}
+
+.clear-button:hover {
+  background-color: var(--color-dark-accent);
+  color: var(--color-red-hot);
+}
+
+
+/* --- Results Section --- */
+.results-section {
+  margin-top: 2rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.activity-card, .total-time-card {
+  background: linear-gradient(145deg, var(--color-dark-accent), var(--color-dark));
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.2s;
+}
+
+.activity-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-pink-bright);
+}
+
+.activity-description {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin: 0 0 0.5rem 0;
+}
+
+.activity-time {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-pink-bright);
+  margin: 0;
+}
+
+.total-time-card {
+  /* Make the total card stand out */
+  background: linear-gradient(135deg, var(--color-red-hot), var(--color-magenta-dark));
+  border: none;
+}
+
+.total-time-label {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-pink-light);
+  margin: 0 0 0.5rem 0;
+}
+
+.total-time-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* --- Report Generator --- */
+.report-generator {
+  margin-top: 2.5rem;
+}
+
+.report-generator h3 {
+  font-size: 1.25rem;
+  color: var(--color-pink-light);
+  margin-bottom: 1rem;
+}
+
+.report-textarea {
+  width: 100%;
+  height: 150px;
+  padding: 1rem;
+  font-family: 'Roboto', sans-serif; /* Use Roboto for the report */
+  font-size: 1.05rem;
+  line-height: 1.6;
+  background-color: var(--color-dark-accent);
+  color: var(--color-text);
+  border: 1px solid var(--color-magenta-dark);
+  border-radius: 8px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.download-button {
+  display: inline-block;
+  width: auto;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  color: var(--color-dark);
+  background-color: var(--color-pink-light);
+  border: none;
+  margin-top: 1rem;
+}
+
+.download-button:hover {
+  background-color: #fff;
+  box-shadow: 0 0 10px var(--color-pink-light);
+}
+
+/* --- Debugger --- */
+.json-debugger {
+  margin-top: 2.5rem;
+}
+
+.json-debugger h3 {
+  font-size: 1rem;
+  color: var(--color-text-dim);
+}
+
+/* Custom "hacker" font for the JSON output */
+.json-output {
+  background-color: var(--color-black);
+  color: var(--color-pink-bright);
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: 'Courier New', Courier, monospace;
+  border: 1px solid #333;
+}
+
+/* --- Error --- */
+.error-message {
+  color: #fff;
+  background: var(--color-red-hot);
+  border: 1px solid var(--color-red-hot);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+}
