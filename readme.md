@@ -1,5 +1,5 @@
 # Smart Time Tracker – AI-Powered Worklog Automation
-
+[![Live Demo](https://img.shields.io/badge/Live_Demo-View_Here-brightgreen?style=for-the-badge&logo=github)](https://lakraanshul.github.io/SUPERHACK/)
 ![Hackathon Logo](./bubble-frontend/public/images/superhack-logo.png)
 
 A hackathon submission for **SuperHack 2025**. This project automatically captures a technician's work activity and uses Generative AI to instantly convert messy logs into clean, billable timesheets and manager-ready reports.
