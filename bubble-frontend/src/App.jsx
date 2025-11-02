@@ -103,7 +103,7 @@ function App() {
       <nav className="navbar">
         <div className="navbar-left">
           {/* Logo from the public/images folder */}
-          <img src="/images/superhack-logo.png" alt="SuperHack 2025" className="navbar-logo" />
+          <img src="/SUPERHACK/images/superhack-logo.png" alt="SuperHack 2025" className="navbar-logo" />
         </div>
         <div className="navbar-center">
           <span className="navbar-title">AI-Powered Worklog Automation</span>
