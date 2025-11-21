@@ -1,5 +1,31 @@
 # Ignore environment file containing secret keys
 .env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Ignore Gmail API credentials
+gmail-credentials.json
+gmail-credentials-*.json
 
 # Ignore node modules folder
 node_modules
+
+# Ignore log files
+*.log
+app.log
+
+# Ignore temporary files
+.tmp/
+temp/
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore OS files
+.DS_Store
+Thumbs.db

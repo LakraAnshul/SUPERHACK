@@ -1,0 +1,13 @@
+# Cross-platform window detection dependencies
+
+# For Windows
+pygetwindow>=0.0.9
+
+# For Linux X11 support (fallback option)
+python-xlib>=0.33
+
+# Note: For Linux, it's recommended to install system packages instead:
+# Ubuntu/Debian: sudo apt install xdotool
+# or: sudo apt install wmctrl
+#
+# For macOS: No additional packages needed (uses built-in AppleScript)
