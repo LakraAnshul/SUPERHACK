@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const multer = require("multer");
 const { body, validationResult } = require("express-validator");
 const Ticket = require("../models/Ticket");
@@ -192,7 +193,13 @@ router.post(
     try {
       const { ticketId } = req.params;
 
-      const ticket = await Ticket.findOne({ ticketId });
+      let ticket = await Ticket.findOne({ ticketId });
+
+      // Fallback: try to find by MongoDB ObjectId if ticketId lookup fails
+      if (!ticket && mongoose.Types.ObjectId.isValid(ticketId)) {
+        ticket = await Ticket.findById(ticketId);
+      }
+
       if (!ticket) {
         return res.status(404).json({
           error: "Ticket not found",
@@ -444,9 +451,16 @@ router.get("/:ticketId", auth, async (req, res) => {
   try {
     const { ticketId } = req.params;
 
-    const ticket = await Ticket.findOne({ ticketId })
+    let ticket = await Ticket.findOne({ ticketId })
       .populate("assignedTo", "name email employeeId")
       .populate("createdBy", "name email");
+
+    // Fallback: try to find by MongoDB ObjectId if ticketId lookup fails
+    if (!ticket && mongoose.Types.ObjectId.isValid(ticketId)) {
+      ticket = await Ticket.findById(ticketId)
+        .populate("assignedTo", "name email employeeId")
+        .populate("createdBy", "name email");
+    }
 
     if (!ticket) {
       return res.status(404).json({
@@ -502,7 +516,12 @@ router.put(
       const { ticketId } = req.params;
       const { resolution } = req.body;
 
-      const ticket = await Ticket.findOne({ ticketId });
+      let ticket = await Ticket.findOne({ ticketId });
+
+      // Fallback: try to find by MongoDB ObjectId if ticketId lookup fails
+      if (!ticket && mongoose.Types.ObjectId.isValid(ticketId)) {
+        ticket = await Ticket.findById(ticketId);
+      }
 
       if (!ticket) {
         return res.status(404).json({

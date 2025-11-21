@@ -197,7 +197,7 @@ const TicketDetails = () => {
               ticket.status !== "closed" &&
               ticket.assignedTo._id === user.id && (
                 <Link
-                  to={`/upload-log/${ticket._id}`}
+                  to={`/tickets/${ticket.ticketId}/upload`}
                   className="inline-flex items-center px-4 py-2 bg-green-600 border border-transparent rounded-lg font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
                 >
                   <Upload className="h-4 w-4 mr-2" />
